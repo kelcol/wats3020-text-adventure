@@ -1,44 +1,37 @@
-/* JS for WATS 3020 Text Adventure */
+// Initialize variables
 let playerName = "";
 let choiceList = [];
 let currentPage = null;
 
-///////////////////////////////////////////////////
-//////// TODOs ///////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-// Fill in the blanks below to complete each TODO task.                       //
-////////////////////////////////////////////////////////////////////////////////
+// Prompt for player name
+playerName = prompt("What is your player's name?");
 
-// TODO: Prompt the user for their name. Store the name in the variable `playerName`.
+// Create function to get/return the current page of story so it can be updated
+// when changePage is run
+function getCurrentPage(slug) {
+	currentPage = storyData[slug]; // Retrive slug for current page fm story obj
+	return currentPage;
+}
 
+// Create recordChoice function to use when changePage function is run
+function recordChoice(slug) {
+	choiceList.push(slug); // Add user choice to choice array
+}
 
+// Recant choice by popping last item in choiceList and returning previous item
+// when undo event listener is invoked
+function undoChoice() {
+	choiceList.pop();
+	console.log(`Choice recanted.`);
+	return choiceList[choiceList.length - 1]; // Return second to last in array
+}
 
-// TODO: Create a function called `getCurrentPage()`. It should accept one
-// parameter, which is the `slug` for the current page. This function will fetch
-// the current page and return a page object using the `slug` value for a key.
-
-
-
-// TODO: Create a function called `recordChoice()` that will accept a `slug`
-// parameter and add it to the `choiceList` Array (probably using `push()`).
-
-
-
-// TODO: Create a function called `undoChoice()` that will remove the last
-// `slug` in the `choiceList` Array and then will return the last `slug` in the
-// `choiceList` Array.
-
-
-
-// TODO: Create a function called `changePage()` that accepts a parameter called
-// `slug` and which handles "turning the page" in three steps:
-//  1. It should call the `recordChoice()` function (and give it the `slug` as
-//     a parameter.
-//  2. It should set the `currentPage` value by calling the `getCurrentPage()`
-//     function (and give it the `slug` as a parameter).
-//  3. It should invoke the `updatePage()` function (and give it the
-//     `currentPage` object as a parameter).
-
+// Combine other defined functions in one to allow story transitions
+function changePage(slug) {
+	recordChoice(slug), // Retrieve recorded choice
+	currentPage = getCurrentPage(slug), // Retrieve current page
+	updatePage(currentPage) // Pass updatePage function below currentPage parameter
+}
 
 
 ///////////////////////////////////////////////////
@@ -259,4 +252,3 @@ undo.addEventListener('click', function(e){
 
 currentPage = storyData.p1;
 updatePage(currentPage);
-
