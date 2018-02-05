@@ -5,9 +5,6 @@ let currentPage = null;
 
 // Prompt for player name
 playerName = prompt("What is your player's name?");
-animal1 = prompt("Name an animal.");
-animal2 = prompt("Name another animal.");
-food = prompt("What's your favorite food?");
 
 // Create function to get/return the current page of story so it can be updated
 // when changePage is run
@@ -53,9 +50,9 @@ function changePage(slug) {
 ////////////////////////////////////////////////////////////////////////////////
 
 var storyData = {
-    title: `The ${animal1} and the ${animal2}`,
+    title: "The Crow and the Fox",
     p1: {
-        text: `You are a ${animal1} named ${playerName}. You are flying high above the
+        text: `You are a crow named ${playerName}. You are flying high above the
                 countryside. You see a farm off to the West, and your home forest
                 off to the East.`,
         choices: [
@@ -81,13 +78,13 @@ var storyData = {
         ]
     },
     p2 : {
-        text: `You fly over the Farm and see a piece of ${food} lying on the
+        text: `You fly over the Farm and see a piece of cheese lying on the
                 picnic table. There are no people around that you can see. The
-                ${food} looks very tasty, but you are worried there might be a
+                cheese looks very tasty, but you are worried there might be a
                 person or, even worse, a CAT lurking somewhere you can't see.`,
         choices: [
             {
-                text: `Go for the ${food}!`,
+                text: `Go for the cheese!`,
                 link: 'p3'
             }, {
                 text: `Decide it's not worth the risk and fly back to the forest.`,
@@ -96,8 +93,8 @@ var storyData = {
         ]
     },
     p3 : {
-        text: `You swoop down and pluck the ${food} from the table. Just as you
-                grab hold of the ${food}, the farmer's cat leaps onto the table
+        text: `You swoop down and pluck the cheese from the table. Just as you
+                grab hold of the cheese, the farmer's cat leaps onto the table
                 ahead of you!`,
         choices: [
             {
@@ -127,10 +124,10 @@ var storyData = {
                 and leaps off the table. You pull up sharply and make it over the
                 big oak tree to a safe cruising altitude. The sun is shining,
                 the wind is beneath your wings, and you have a beak full of
-                ${food}.`,
+                cheese.`,
         choices: [
             {
-                text: `Find somewhere nice to eat your ${food}.`,
+                text: `Find somewhere nice to eat your cheese.`,
                 link: 'p5'
             }
         ]
@@ -140,21 +137,21 @@ var storyData = {
                 full of wildflowers. You decide this will be a wonderful place
                 to have a snack.
                 <br><br>
-                Just as you settle down you see Mr. ${animal2} strolling down the path
+                Just as you settle down you see Mr. Fox strolling down the path
                 towards your fence post.`,
         choices: [
             {
-                text: `Say, "Hello Mr. ${animal2}! Join me for ${food}."`,
-                link: 'share${food}'
+                text: `Say, "Hello Mr. Fox! Join me for cheese."`,
+                link: 'shareCheese'
             }, {
-                text: `Keep a wary eye on Mr. ${animal2}.`,
+                text: `Keep a wary eye on Mr. Fox.`,
                 link: 'p6'
             }
         ]
     },
-    share${food} : {
-        text: `You hop down to the ground and Mr. ${animal2} helps you break the ${food}
-                in half. He is very grateful to you for sharing your ${food}, and
+    shareCheese : {
+        text: `You hop down to the ground and Mr. Fox helps you break the cheese
+                in half. He is very grateful to you for sharing your cheese, and
                 he gives you a lovely ribbon for your nest.
                 <br><br>
                 The End`,
@@ -166,22 +163,22 @@ var storyData = {
         ]
     },
     p6 : {
-        text: `Mr. ${animal2} approaches and says, "Hello ${playerName}! It's been so
+        text: `Mr. Fox approaches and says, "Hello ${playerName}! It's been so
                 long since we've seen each other. I've missed hearing your
                 lovely singing voice. Won't you sing me a tune before I go?`,
         choices: [
             {
-                text: `Sing a song for Mr. ${animal2}.`,
-                link: 'drop${food}End'
+                text: `Sing a song for Mr. Fox.`,
+                link: 'dropCheeseEnd'
             }, {
                 text: `Remain silent.`,
                 link: 'p7'
             }
         ]
     },
-    drop${food}End : {
-        text: `You open your beak to sing a lovely song, and your ${food} comes
-                tumbling out. Mr. ${animal2} quickly snaps the ${food} out of the air
+    dropCheeseEnd : {
+        text: `You open your beak to sing a lovely song, and your cheese comes
+                tumbling out. Mr. Fox quickly snaps the cheese out of the air
                 as it falls and gobbles it up!
                 <br><br>
                 The End`,
@@ -193,11 +190,11 @@ var storyData = {
         ]
     },
     p7 : {
-        text: `You remain silent through all of Mr. ${animal2}'s flattery. In the end,
+        text: `You remain silent through all of Mr. Fox's flattery. In the end,
                 he knows you won't fall for his tricks, and he leaves you alone.
                 <br><br>
                 Finally able to relax in quiet, you enjoy your well-earned
-                ${food}.
+                cheese.
                 <br><br>
                 The End`,
         choices: [
